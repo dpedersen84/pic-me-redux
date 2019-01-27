@@ -9,7 +9,7 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Pic-Me</h1>
+                <h1 className="display-3 mb-4 pic-me">pic-Me</h1>
                 <p className="lead">
                   {" "}
                   Create a profile and share images with your funniest caption.
