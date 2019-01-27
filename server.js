@@ -16,12 +16,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Connect to the Mongo database
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/PicMedb";
+const db = require("./config/keys").mongoURI;
 
 mongoose
   .connect(
-    MONGODB_URI,
+    db,
     { useNewUrlParser: true }
   )
   .then(() => console.log("Connected to MongoDB"))
