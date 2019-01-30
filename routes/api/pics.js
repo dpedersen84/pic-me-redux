@@ -61,6 +61,25 @@ router.get("/:id", (req, res) => {
     );
 });
 
+// @route         GET api/pics/user/:id
+// @description   Get pic by user id
+// @access        Public
+router.get("/user/:id", (req, res) => {
+  const errors = {};
+
+  Pic.find({ user: req.params.id })
+    .then(pics => {
+      if (!pics) {
+        errors.nopics = "There are no pics for this user";
+        res.status(404).json(errors);
+      }
+      res.json(pics);
+    })
+    .catch(err =>
+      res.status(404).json({ pics: "There are no pics for this user" })
+    );
+});
+
 // @route         DELETE api/pics/:id
 // @description   Delete pic by id
 // @access        Private
