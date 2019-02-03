@@ -48,7 +48,7 @@ export const getProfileByHandle = handle => dispatch => {
 };
 
 // Create profile
-export const createProfile = (profileData, history) => {
+export const createProfile = (profileData, history) => dispatch => {
   dispatch(clearErrors());
   axios
     .post("/api/profile", profileData)
