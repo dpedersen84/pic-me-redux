@@ -7,11 +7,18 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import PrivateRoute from "./components/private-route/PrivateRoute";
+
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import EditProfile from "./components/edit-profile/EditProfile";
+import CreateProfile from "./components/create-profile/CreateProfile";
+import EditPics from "./components/edit-pics/EditPics";
+import Leaderboard from "./components/leaderboard/Leaderboard";
+import Question from "./components/question/Question";
 
 import "./App.css";
 
@@ -40,7 +47,30 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/leaderboard" component={Leaderboard} />
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-profile"
+                  component={EditProfile}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/edit-pics" component={EditPics} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/question" component={Question} />
+              </Switch>
             </div>
           </div>
         </Router>
