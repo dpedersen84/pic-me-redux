@@ -144,7 +144,7 @@ class EditProfile extends Component {
       <div className="edit-profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 md-auto">
+            <div className="col-md-8 m-auto">
               <Link to="/dashboard" className="btn btn-light">
                 Back
               </Link>
@@ -210,4 +210,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { createProfile, getCurrentProfile }
-)(EditProfile);
+)(withRouter(EditProfile));
