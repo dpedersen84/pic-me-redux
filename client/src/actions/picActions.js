@@ -127,8 +127,30 @@ export const searchPic = searchTerm => dispatch => {
 };
 
 // Add like
+export const addLike = id => dispatch => {
+  axios
+    .post(`/api/pics/like/${id}`)
+    .then(res => dispatch(getPics()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Remove like
+export const removeLike = id => dispatch => {
+  axios
+    .post(`/api/pics/unlike/${id}`)
+    .then(res => dispatch(getPics()))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Add comment
 
