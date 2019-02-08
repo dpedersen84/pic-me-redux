@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../form/TextAreaFieldGroup";
-// import { addComment } from "../../actions/picActions";
+import { addComment } from "../../actions/picActions";
 
 class CommentForm extends Component {
   constructor(props) {
@@ -25,7 +25,18 @@ class CommentForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+
+    const { user } = this.props.auth;
+    const { picId } = this.props;
+
+    const newComment = {
+      text: this.state.text,
+      name: user.name,
+      avatar: user.avatar
+    };
+
+    this.props.addComment(picId, newComment);
+    this.setState({ text: "" });
   };
 
   render() {
@@ -60,7 +71,7 @@ class CommentForm extends Component {
 }
 
 CommentForm.propTypes = {
-  // addComment: PropTypes.func.isRequired,
+  addComment: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   picId: PropTypes.string.isRequired,
   errors: PropTypes.object.isRequired
@@ -72,6 +83,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps
-  // { addComment }
+  mapStateToProps,
+  { addComment }
 )(CommentForm);
