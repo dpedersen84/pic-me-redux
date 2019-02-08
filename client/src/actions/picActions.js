@@ -153,8 +153,41 @@ export const removeLike = id => dispatch => {
 };
 
 // Add comment
+export const addComment = (picId, commentData) => dispatch => {
+  dispatch(clearErrors());
+  axios
+    .post(`/api/pics/comments/${picId}`, commentData)
+    .then(res =>
+      dispatch({
+        type: GET_PIC,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Remove comment
+export const deleteComment = (picId, commentId) => dispatch => {
+  axios
+    .delete(`/api/pics/comments/${picId}/${commentId}`)
+    .then(res =>
+      dispatch({
+        type: GET_PIC,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Set loading state
 export const setPicLoading = () => {
