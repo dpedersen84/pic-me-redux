@@ -51,8 +51,8 @@ class EditProfile extends Component {
       profile.youtube = !isEmpty(profile.social.youtube)
         ? profile.social.youtube
         : "";
-      profile.isntagram = !isEmpty(profile.social.twitter)
-        ? profile.social.twitter
+      profile.instagram = !isEmpty(profile.social.instagram)
+        ? profile.social.instagram
         : "";
 
       // Set component fields state
