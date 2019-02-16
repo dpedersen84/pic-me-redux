@@ -14,8 +14,10 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import Profile from "./components/profile/Profile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import CreateProfile from "./components/create-profile/CreateProfile";
+import AddPics from "./components/add-pics/AddPics";
 import EditPics from "./components/edit-pics/EditPics";
 import Leaderboard from "./components/leaderboard/Leaderboard";
 import Pic from "./components/pic/Pic";
@@ -49,6 +51,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/leaderboard" component={Leaderboard} />
+              <Route exact path="/profile/:handle" component={Profile} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
@@ -65,6 +68,9 @@ class App extends Component {
                   path="/create-profile"
                   component={CreateProfile}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/add-pics" component={AddPics} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/edit-pics" component={EditPics} />
