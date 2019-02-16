@@ -8,10 +8,10 @@ const DashboardActions = () => {
         <i className="fas fa-user-circle text-info mr-1" />
         Edit Profile
       </Link>
-      <Link to="edit-pics" className="btn btn-light">
+      {/* <Link to="edit-pics" className="btn btn-light">
         <i className="fas fa-images text-info mr-1" />
         Edit Pics
-      </Link>
+      </Link> */}
       <Link to="add-pics" className="btn btn-light">
         <i className="fas fa-images text-info mr-1" />
         Add Pics
