@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
-const axios = require("axios");
 
 const Pic = require("../../models/Pic");
 const Profile = require("../../models/Profile");
@@ -50,23 +49,6 @@ router.get("/", (req, res) => {
     .then(pics => res.json(pics))
     .catch(err => res.status(404).json({ nopicsfound: "No pics found" }));
 });
-
-// @route         GET api/pics/add
-// @description   Get pics from search to GIPHY
-// @access        Private
-router.get(
-  "/add",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const search = req.body.search;
-
-    axios
-      .get(
-        `https://api.giphy.com/v1/gifs/random?q=${search}&api_key=dc6zaTOxFJmzC&limit=1`
-      )
-      .then(res => res.data.data.image_url);
-  }
-);
 
 // @route         GET api/pics/:id
 // @description   Get pic by id
