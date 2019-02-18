@@ -12,9 +12,9 @@ const DashboardActions = () => {
         <i className="fas fa-images text-info mr-1" />
         Edit Pics
       </Link> */}
-      <Link to="add-pics" className="btn btn-light">
+      <Link to="add-pic" className="btn btn-light">
         <i className="fas fa-images text-info mr-1" />
-        Add Pics
+        Add Pic
       </Link>
     </div>
   );

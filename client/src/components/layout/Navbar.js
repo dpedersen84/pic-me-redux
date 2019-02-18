@@ -21,8 +21,8 @@ class Navbar extends Component {
           </Link>
         </li> */}
         <li className="nav-item">
-          <Link to="/add-pics" className="nav-link">
-            Add Pics
+          <Link to="/add-pic" className="nav-link">
+            Add Pic
           </Link>
         </li>
         <li className="nav-item">

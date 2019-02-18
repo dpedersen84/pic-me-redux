@@ -17,7 +17,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/profile/Profile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import CreateProfile from "./components/create-profile/CreateProfile";
-import AddPics from "./components/add-pics/AddPics";
+import AddPic from "./components/add-pic/AddPic";
 import EditPics from "./components/edit-pics/EditPics";
 import Leaderboard from "./components/leaderboard/Leaderboard";
 import Pic from "./components/pic/Pic";
@@ -70,7 +70,7 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/add-pics" component={AddPics} />
+                <PrivateRoute exact path="/add-pic" component={AddPic} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/edit-pics" component={EditPics} />
