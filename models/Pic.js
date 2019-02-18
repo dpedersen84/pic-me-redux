@@ -14,7 +14,8 @@ const PicSchema = new Schema({
     type: String
   },
   caption: {
-    type: String
+    type: String,
+    required: true
   },
   avatar: {
     type: String
