@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
+import { getUserPics } from "../../actions/picActions";
 
 class ProfileAbout extends Component {
+  componentDidMount() {
+    const { user } = this.props.auth;
+    this.props.getUserPics(user.id);
+  }
+
   render() {
     const { profile } = this.props;
-    const { user } = this.props.profile;
+    // const { pics } = this.props.pics;
 
     // Get first name
     const firstName = profile.user.name.trim().split(" ")[0];
@@ -22,13 +29,14 @@ class ProfileAbout extends Component {
                 <span>{profile.bio}</span>
               )}
             </p>
-            <hr />
+            {/* <hr />
             <h3 className="text-center text-info">Latest Pic</h3>
             <div className="row">
               <div className="d-flex flex-wrap justify-content-center align-items-center">
-                {user._id}
+                {" "}
+                <img src={pics[0]} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -37,7 +45,18 @@ class ProfileAbout extends Component {
 }
 
 ProfileAbout.propTypes = {
-  profile: PropTypes.object.isRequired
+  pics: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
+  getUserPics: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
-export default ProfileAbout;
+const mapStateToProps = state => ({
+  pics: state.pics,
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { getUserPics }
+)(ProfileAbout);
