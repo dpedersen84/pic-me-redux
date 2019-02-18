@@ -19,10 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const db = require("./config/keys").mongoURI;
 
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error(err));
 
@@ -39,7 +36,7 @@ app.use("/api/profile", profile);
 
 // Production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client", "build"));
+  app.use(express.static("client/build"));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
