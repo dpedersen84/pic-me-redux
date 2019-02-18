@@ -27,13 +27,11 @@ class AddPic extends Component {
   };
 
   handlePicUpload = file => {
-    console.log("File changed: ", file);
     if (file) {
       file.progress(info => console.log("File progress: ", info.progress));
       file.done(info => {
         console.log("File uploaded: ", info);
         this.setState({ pic: info.originalUrl });
-        console.log(this.state.pic);
       });
     }
   };
@@ -82,7 +80,7 @@ class AddPic extends Component {
                   value={this.state.caption}
                   onChange={this.onChange}
                   error={errors.caption}
-                  info="Say something about this pic"
+                  info="Say something about this pic. *Warning: Caption cannot be changed after upload!"
                 />
                 <input
                   type="submit"
