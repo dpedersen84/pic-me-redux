@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ProfileHeader from "./ProfileHeader";
 import ProfileAbout from "./ProfileAbout";
@@ -25,7 +26,9 @@ class Profile extends Component {
         <div>
           <div className="row">
             <div className="col-md-6">
-              <button className="btn btn-light mb-3 float-left">Back</button>
+              <Link to="/dashboard" className="btn btn-light mb-3 float-left">
+                Back
+              </Link>
             </div>
             <div className="col-md-6" />
           </div>
