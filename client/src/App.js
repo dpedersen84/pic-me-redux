@@ -18,10 +18,8 @@ import Profile from "./components/profile/Profile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import AddPic from "./components/add-pic/AddPic";
-import EditPics from "./components/edit-pics/EditPics";
 import Leaderboard from "./components/leaderboard/Leaderboard";
 import Pic from "./components/pic/Pic";
-import Question from "./components/question/Question";
 
 import "./App.css";
 
@@ -73,13 +71,7 @@ class App extends Component {
                 <PrivateRoute exact path="/add-pic" component={AddPic} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/edit-pics" component={EditPics} />
-              </Switch>
-              <Switch>
                 <PrivateRoute exact path="/pic/:id" component={Pic} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/question" component={Question} />
               </Switch>
             </div>
           </div>
