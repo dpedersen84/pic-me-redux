@@ -15,4 +15,3 @@ export const GET_PIC = "GET_PIC";
 export const GET_USER_PICS = "GET_USER_PICS";
 export const ADD_PIC = "ADD_PIC";
 export const DELETE_PIC = "DELETE_PIC";
-export const SEARCH_PIC = "SEARCH_PIC";

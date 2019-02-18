@@ -8,8 +8,7 @@ import {
   GET_PIC,
   DELETE_PIC,
   GET_USER_PICS,
-  ADD_PIC,
-  SEARCH_PIC
+  ADD_PIC
 } from "./types";
 
 // Get all pics
@@ -70,7 +69,7 @@ export const getUserPics = id => dispatch => {
 };
 
 // Add pic
-export const addPic = picData => dispatch => {
+export const addPic = (picData, history) => dispatch => {
   axios
     .post("/api/pics", picData)
     .then(res =>
@@ -79,10 +78,11 @@ export const addPic = picData => dispatch => {
         payload: res.data
       })
     )
+    .then(res => history.push("/leaderboard"))
     .catch(err =>
       dispatch({
-        type: GET_PICS,
-        payload: null
+        type: GET_ERRORS,
+        payload: err.response.data
       })
     );
 };
@@ -101,27 +101,6 @@ export const deletePic = id => dispatch => {
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
-      })
-    );
-};
-
-// Search pic
-export const searchPic = searchTerm => dispatch => {
-  dispatch(setPicLoading());
-  axios
-    .get(
-      `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&limit=1`
-    )
-    .then(res =>
-      dispatch({
-        type: SEARCH_PIC,
-        payload: res.data.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_PICS,
-        payload: null
       })
     );
 };
